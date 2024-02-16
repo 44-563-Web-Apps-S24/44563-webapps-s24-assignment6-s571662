@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <title>Predict the Animal Game</title>
+ </head>
+<body>
+
+<h2>Animal Game by Kalyan Chakravarthy Jogula</h2>
+<main>
+    <form>
+        <label for="hiddenAnimal">The hidden animal type</label>
+        <input type="password" id="hiddenAnimal" value="Chicken">
+        <br>
+        <label for="guessAnimal">Guess the animal</label>
+        <input type="text" id="guessAnimal">
+        <br>
+        <button type="button" onclick="checkAnimal()">Check the guess</button>
+    </form>
+    <div id="result"></div>
+</main>
+
+<script>
+    let wrong = 0;
+    let correct = 0;
+
+    function checkAnimal() {
+        const hiddenAnimal = document.getElementById('hiddenAnimal').value;
+        const guessAnimal = document.getElementById('guessAnimal').value;
+
+        if (hiddenAnimal.toLowerCase() === guessAnimal.toLowerCase()) {
+            correct++;
+            alert('Ruff ruff');
+        } else {
+            wrong++;
+            alert('Grrrr');
+        }
+
+        document.getElementById('result').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
+    }
+</script>
+
+</body>
+</html> 
