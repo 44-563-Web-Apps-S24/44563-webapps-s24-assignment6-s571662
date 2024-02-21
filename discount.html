@@ -4,7 +4,78 @@
         <title>Discount Estimation</title>
     </head>
     <body>
-        <h2>Kalyan Chakravarthy Jogula</h2>
+        <h1>Kalyan Chakravarthy Jogula Discount Estimation</h1>
+
+        <h2>Discount Estimation</h2>
+            <form id="discountForm">
+            <label for="price">Enter price per:</label>
+            <input type="number" id="price" value="10"><br>
+        
+            <label for="count">Enter the number of items:</label>
+            <input type="number" id="count" value="9"><br>
+        
+            <label for="reductions">Enter the discount percent:</label>
+            <input type="number" id="reductions" value="5"><br>
+        
+            <button type="button" onclick="discount()">Show total</button>
+        </form>
+        <p id="output">This text will be replaced</p>
+        
+        <form id="operationForm">
+            <label for="sum">Sum</label>
+            <input type="radio" name="operation" value="sum" onclick="chooseOp()"> <br> 
+            <label for="multiply">Multiply</label>
+            <input type="radio" name="operation" value="multiply" onclick="chooseOp()"><br>
+            <label for="exponent">Exponent</label>
+            <input type="radio" name="operation" value="exponent" onclick="chooseOp()"><br>
+        </form>
+        
+        <p id="operationOutput">This text will be replaced</p>
+        
+        <script>
+            function discount() {
+                var price = document.getElementById("price").value;
+                var count = document.getElementById("count").value;
+                var discountPercent = document.getElementById("reductions").value;
+                var toShow = "Totals are: ";
+        
+                for (var i = 0; i < 5; i++) {
+                    var discountRate = parseInt(discountPercent) + i;
+                    var total = (price * count) * (1 - discountRate / 100);
+                    toShow += discountRate + "% is $" + total.toFixed(2) + "; ";
+                }
+        
+                document.getElementById("output").innerHTML = toShow;
+            }
+        
+            function chooseOp() {
+                var price = parseInt(document.getElementById("price").value);
+                var discount = parseInt(document.getElementById("reductions").value);
+                var selectedOperation = document.querySelector('input[name="operation"]:checked').value;
+        
+                var result;
+        
+                switch (selectedOperation) {
+                    case "sum":
+                        result = price + discount;
+                        document.getElementById("operationOutput").innerHTML = "Sum of " + price + " and " + discount + " is " + result;
+                        break;
+                    case "multiply":
+                        result = price * discount;
+                        document.getElementById("operationOutput").innerHTML = "Product of " + price + " and " + discount + " is " + result;
+                        break;
+                    case "exponent":
+                        result = Math.pow(price, discount);
+                        document.getElementById("operationOutput").innerHTML = "Exponent of " + price + " raised to the power of " + discount + " is " + result;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        </script><br><br><br>
+        
+        
+        <h2>Getting input</h2>
         <form>
             <label for="form1_age">What is your age </label>
             <input type = "number" id="form1_age" name="form1_age" min=10 max=50 step=2 value=30> <br>
@@ -33,7 +104,7 @@
             }
 
             }
-        }
+        
         </script>
     </body>
 </html>
