@@ -36,7 +36,12 @@
         }
 
         document.getElementById('result').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
-       
+       // Bonus Function call that displays an alert with the text
+       if (wrong > correct) {
+            document.getElementById('animalForm').onclick = function() {
+                alert('Sorry, too many wrong guesses.');
+            };
+        }
     }
 </script>
 <div id="imagecontainer" onclick="selectImage()">
