@@ -7,19 +7,20 @@
 
 <h2>Animal Game by Kalyan Chakravarthy Jogula</h2>
 <main>
-    <form>
+    <form id="animal">
         <label for="hiddenAnimal">The hidden animal type</label>
         <input type="password" id="hiddenAnimal" value="Chicken">
         <br>
         <label for="guessAnimal">Guess the animal</label>
         <input type="text" id="guessAnimal">
         <br>
-        <button type="button" onclick="checkAnimal()">Check the guess</button>
+        <input type="button" class="btn btn-info" onclick="checkAnimal()" value="Check the Guess">
     </form>
     <div id="result"></div>
 </main>
 
 <script>
+
     let wrong = 0;
     let correct = 0;
 
@@ -38,7 +39,7 @@
         document.getElementById('result').innerHTML = `Correct: ${correct}, Wrong: ${wrong}`;
        // Bonus Function call that displays an alert with the text
        if (wrong > correct) {
-            document.getElementById('animalForm').onclick = function() {
+            document.getElementById('animal').onclick = function() {
                 alert('Sorry, too many wrong guesses.');
             };
         }
